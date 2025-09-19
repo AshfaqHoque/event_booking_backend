@@ -1,12 +1,14 @@
-import { Controller, Get, Post, Body, Param, Put, Delete } from '@nestjs/common';
+import { Controller, Get, Post, Body, Param, Put, Delete, UseGuards } from '@nestjs/common';
 import { TicketService } from './ticket.service';
 import { Prisma } from '@prisma/client';
 import { BookTicketDto } from './dto/book_ticket.dto';
+import { AuthGuard } from 'src/auth/guards/auth.guard';
 
 @Controller('tickets')
 export class TicketController {
   constructor(private readonly ticketService: TicketService) {}
 
+  @UseGuards(AuthGuard)
   @Post('book')
   async bookTicket(@Body() dto: BookTicketDto) {
     return this.ticketService.bookTicket(dto);

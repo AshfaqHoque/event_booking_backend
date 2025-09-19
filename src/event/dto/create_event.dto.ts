@@ -5,6 +5,9 @@ export class CreateEventDto {
   title: string;
 
   @IsNotEmpty()
+  description: string;
+
+  @IsNotEmpty()
   venue: string;
 
   @IsDateString()
@@ -13,6 +16,10 @@ export class CreateEventDto {
   @IsNumber()
   @Min(0)
   price: number;
+
+  @IsInt()
+  @Min(0)
+  totalSeats: number;
 
   @IsInt()
   @Min(0)
