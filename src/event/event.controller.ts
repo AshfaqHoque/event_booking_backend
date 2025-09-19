@@ -2,7 +2,6 @@ import { Controller, Get, Post, Body, Param, Put, Delete } from '@nestjs/common'
 import { EventService } from './event.service';
 import { Prisma } from '@prisma/client';
 import { CreateEventDto } from './dto/create_event.dto';
-import { AuthGuard } from 'src/auth/guards/auth.guard';
 
 @Controller('events')
 export class EventController {

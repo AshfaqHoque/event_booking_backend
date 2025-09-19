@@ -14,7 +14,7 @@ async create(createEventDto: CreateEventDto): Promise<{message: string; event:My
   }
 
   findAll() {
-    return this.prisma.event.findMany();
+    return this.prisma.event.findMany({ orderBy: { date: 'desc' } });
   }
 
   findOne(id: number) {
